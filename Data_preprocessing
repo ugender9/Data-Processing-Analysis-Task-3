@@ -1,0 +1,57 @@
+("="*60)
+print("PROBLEM 1: Employee Performance Bonus Eligibility")
+print("="*60)
+
+# Input: Dictionary with employee names and performance scores
+employees = {
+    "Ravi": 92,
+    "Anita": 88,
+    "Kiran": 92,
+    "Suresh": 85
+}
+
+print(f"\nInput: {employees}")
+
+Step 1: Identify the highest performance score
+highest_score = max(employees.values())
+print(f"\nHighest Performance Score: {highest_score}")
+ Step 2: Find all employees with the highest score (handle ties)
+top_performers = [name for name, score in employees.items() if score == highest_score]
+ Step 3: Display all employees eligible for the top performance bonus
+result_1 = f"Top Performers Eligible for Bonus: {', '.join(top_performers)} (Score: {highest_score})"
+print(f"\nOutput: {result_1}")
+
+print("\n" + "="*60)
+print("PROBLEM 2: Search Query Keyword Analysis")
+print("="*60)
+
+ Problem Statement 2: Search Query Keyword Analysis
+import string
+
+ Input: Search query
+search_query = "Buy mobile phone buy phone online"
+print(f"\nInput: \"{search_query}\"")
+
+Step 1: Convert to lowercase
+lowercase_query = search_query.lower()
+
+ Step 2: Remove punctuation
+cleaned_query = lowercase_query.translate(str.maketrans('', '', string.punctuation))
+
+ Step 3: Split into keywords
+keywords = cleaned_query.split()
+
+Step 4: Count frequency of each keyword
+from collections import Counter
+keyword_freq = Counter(keywords)
+
+ Step 5: Display only keywords searched more than once
+filtered_keywords = {word: count for word, count in keyword_freq.items() if count > 1}
+
+ Sort by word for consistent output
+result_2 = dict(sorted(filtered_keywords.items()))
+print(f"\nOutput: {result_2}")
+
+print("\n" + "="*60)
+print("Task Completed Successfully!")
+print("="*60)
